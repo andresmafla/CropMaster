@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "470598591038",
+    "project_id": "noborresnada",
+    "storage_bucket": "noborresnada.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470598591038:android:0a69994ef7fede4386e76f",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470598591038-k4pvlfe75kiussgc19vgb22v5odd5c62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.login",
+            "certificate_hash": "7b234635724cb6bb8d53cd43898b5bc103929e2b"
+          }
+        },
+        {
+          "client_id": "470598591038-mt5dfonc3ckmqliptvkp3ivh7uqulifd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA37stg4WFvysTutPdX9c8bAQcqo4jynHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470598591038-mt5dfonc3ckmqliptvkp3ivh7uqulifd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
