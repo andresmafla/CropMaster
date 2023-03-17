@@ -28,7 +28,6 @@ class LoginScreenState extends State<LoginScreen> {
     // Get the email and password entered by the user
     String email = _emailController.text;
     String password = _passwordController.text;
-
     // Use the Firebase Authentication API to sign the user in
     _auth
         .signInWithEmailAndPassword(email: email, password: password)
@@ -41,7 +40,6 @@ class LoginScreenState extends State<LoginScreen> {
         MaterialPageRoute(
             builder: (context) => HomeScreen(
                   user: userCredential.user,
-                  name: userCredential.user!.displayName,
                 )),
       );
     }).catchError((error) {
@@ -83,7 +81,10 @@ class LoginScreenState extends State<LoginScreen> {
             ">> Login Success - name : ${result.user?.displayName} - email : ${result.user?.email}");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(
+              builder: (context) => HomeScreen(
+                    user: result.user,
+                  )),
         );
       }
     } catch (e) {
@@ -149,7 +150,7 @@ class LoginScreenState extends State<LoginScreen> {
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 40.0,
           child: TextField(
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
@@ -185,7 +186,7 @@ class LoginScreenState extends State<LoginScreen> {
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 40.0,
           child: TextField(
             controller: _passwordController,
             obscureText: true,
@@ -254,7 +255,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   Widget _buildLoginBtn() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 25.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0),
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -286,11 +287,11 @@ class LoginScreenState extends State<LoginScreen> {
         const Text(
           '- O -',
           style: TextStyle(
-            color: Colors.white,
+            color: Color.fromARGB(255, 0, 0, 0),
             fontWeight: FontWeight.w400,
           ),
         ),
-        const SizedBox(height: 20.0),
+        const SizedBox(height: 10.0),
         Text(
           'Ingrese con',
           style: kLabelStyle,
@@ -325,7 +326,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   Widget _buildSocialBtnRow() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -406,11 +407,14 @@ class LoginScreenState extends State<LoginScreen> {
                   physics: const AlwaysScrollableScrollPhysics(),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 10.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      const SizedBox(
+                        height: 20.0,
+                      ),
                       const Text(
                         'CropMaster',
                         style: TextStyle(
@@ -426,10 +430,12 @@ class LoginScreenState extends State<LoginScreen> {
                         height: 120,
                         alignment: Alignment(200, 200),
                       ),
-                      const SizedBox(height: 30.0),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
                       _buildEmailTF(),
                       const SizedBox(
-                        height: 30.0,
+                        height: 10.0,
                       ),
                       _buildPasswordTF(),
                       _buildForgotPasswordBtn(),
